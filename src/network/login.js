@@ -1,5 +1,8 @@
-import {request} from "./request";
+import {requset} from "./request";
 
-export function getLogin() {
-
+export function Login(username, password) {
+  return requset({
+    url: '/login',
+    post: username, password
+  })
 }

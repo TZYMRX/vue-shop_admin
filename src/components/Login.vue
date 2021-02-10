@@ -35,6 +35,8 @@
 </template>
 
 <script>
+  import {Login} from "../network/login";
+
   export default {
     name: "Login",
     data() {
