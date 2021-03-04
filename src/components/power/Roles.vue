@@ -219,7 +219,7 @@
           }
           this.editRoleDialogVisible = false
           this.$message.success('更新角色信息成功')
-          this.getRoleList()
+          await this.getRoleList()
         })
       },
 
@@ -247,13 +247,14 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          this.$http.delete(`roles/${role.id}/rights/${rigthId}`).then(res => {
-            const data = res.data
-            if (data.meta.status !== 200) return this.$message.error('删除权限失败')
-            this.$message.success('删除权限成功')
-            // this.getRoleList()
-            role.children = data.data
-          })
+          this.$http.delete(`roles/${role.id}/rights/${rigthId}`)
+              .then(res => {
+                const data = res.data
+                if (data.meta.status !== 200) return this.$message.error('删除权限失败')
+                this.$message.success('删除权限成功')
+                // this.getRoleList()
+                role.children = data.data
+              })
         }).catch(() => {
           this.$message.error('取消删除')
         })
@@ -299,7 +300,7 @@
         if (res.meta.status !== 200) return this.$message.error('分配权限失败')
         this.$message.success('分配权限成功')
 
-        this.getRoleList()
+        await this.getRoleList()
         this.setRightDialogVisible = false
       }
     }

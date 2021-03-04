@@ -227,15 +227,14 @@
     },
     methods: {
       getUserList() {
-        this.$http.get('users', {
-          params: this.queryInfo
-        }).then(res => {
-          const data = res.data
-          if (data.meta.status !== 200) return this.$message.error('获取用户列表失败')
+        this.$http.get('users', {params: this.queryInfo})
+            .then(res => {
+              const data = res.data
+              if (data.meta.status !== 200) return this.$message.error('获取用户列表失败')
 
-          this.userlist = data.data.users
-          this.total = data.data.total
-        })
+              this.userlist = data.data.users
+              this.total = data.data.total
+            })
       },
       // 监听 pagesize 改变
       handleSizeChange(newSize) {
