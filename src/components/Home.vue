@@ -20,13 +20,13 @@
         <el-menu background-color="#333744" text-color="#fff" active-text-color="#409eff"
                  unique-opened :collapse-transition="false"
                  :collapse="isCollapse" router :default-active="this.$route.path">
-          <el-submenu :index="item.id+''" v-for="item in menuList" :key="item.id">
+          <el-submenu v-for="item in menuList" :index="item.id+''" :key="item.id">
             <template slot="title">
               <i :class="iconObj[item.id]"></i>
               <span>{{item.authName}}</span>
             </template>
 
-            <el-menu-item :index="'/' + subItem.path" v-for="subItem in item.children"
+            <el-menu-item v-for="subItem in item.children" :index="'/' + subItem.path"
                           :key="subItem.id" @click="saveNavState('/' + subItem.path)">
               <template slot="title">
                 <i class="el-icon-menu"></i>
@@ -61,12 +61,12 @@
         // 是否折叠
         isCollapse: false,
         // 被激活的链接地址
-        activePath: '',
+        // activePath: '',
       }
     },
     created() {
       this.getMenuList()
-      this.activePath = window.sessionStorage.getItem('activePath')
+      // this.activePath = window.sessionStorage.getItem('activePath')
     },
     methods: {
       logout() {
@@ -87,8 +87,8 @@
       },
       // 保存链接激活状态
       saveNavState(activePath) {
-        window.sessionStorage.setItem('activePath', activePath)
-        this.activePath = activePath
+      //   window.sessionStorage.setItem('activePath', activePath)
+      //   this.activePath = activePath
       }
     },
     // computed: {

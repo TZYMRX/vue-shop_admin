@@ -3,16 +3,13 @@
     <div class="login_box">
       <div class="avatar_box">
         <!-- 头像区域 -->
-        <img src="../assets/logo.png" alt="">
+        <img src="../assets/logo.png">
       </div>
       <!-- 登录表单区域 -->
       <el-form ref="loginFormRef" :rules="loginFormRules" :model="loginForm" class="login_info">
         <!-- 用户名 -->
         <el-form-item prop="username">
-          <el-input
-                  v-model="loginForm.username"
-                  prefix-icon="el-icon-user-solid"
-          />
+          <el-input v-model="loginForm.username" prefix-icon="el-icon-user-solid"/>
         </el-form-item>
 
         <!-- 密码 -->
@@ -35,8 +32,6 @@
 </template>
 
 <script>
-  import {Login} from "../network/login";
-
   export default {
     name: "Login",
     data() {

@@ -62,7 +62,6 @@
 
     <!-- 添加用户对话框 -->
     <el-dialog title="添加用户" :visible.sync="addDialogVisible" width="50%" @close="addDialogClosed">
-
       <el-form :model="addForm" :rules="addFormRules" ref="addFormRef" label-width="70px">
         <el-form-item label="用户名" prop="username">
           <el-input v-model="addForm.username"/>
@@ -248,7 +247,6 @@
       },
       // 监听 开关状态改变
       userStateChanged(userInfo) {
-        // console.log(userInfo)
         this.$http.put(`users/${userInfo.id}/state/${userInfo.mg_state}`).then(res => {
           const data = res.data
           if (data.meta.status !== 200) {
