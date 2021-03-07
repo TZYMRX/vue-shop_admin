@@ -23,8 +23,8 @@ Vue.use(VueQuillEditor)
 Vue.config.productionTip = false
 
 import axios from "axios";
-
-axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+// 'http://127.0.0.1:8888/api/private/v1/'
+axios.defaults.baseURL =  'https://www.liulongbin.top:8888/api/private/v1/'
 axios.defaults.timeout = 10000
 axios.interceptors.request.use(config => {
   // console.log(config)
