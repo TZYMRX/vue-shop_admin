@@ -63,7 +63,7 @@
       const {data: res} = await this.$http.get('reports/type/1')
       if (res.meta.status !== 200) return this.$message.error('获取折线图事件失败')
 
-      // 指定图表的配置项和数据
+      // 指定图表的配置项和数
       const result = _.merge(res.data, this.options)
 
       // 展示数据
